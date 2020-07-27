@@ -1,0 +1,7 @@
+Financial Bank Analysis
+---------------------------------------------
+Total Months: 86
+Total Revenue: 38382578
+Total Average: $-2315
+Greatest Increase: 1473302
+Greatest Decrease: -3260334
