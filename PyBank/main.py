@@ -58,7 +58,7 @@ with open(csvpath) as bankcsv:
         previousvalue = (int(nextrow[1]))
    
     #Subtraction/ total of rows will provide the average and round it so there is not too many decimals
-    print("Total Average: $" + str(round(totalchange/totalrowsforaverage)))
+    print("Total Average: $" + str(round(totalchange/totalrowsforaverage, 2)))
     print("Greatest Increase: " + str(greatestincrease[0]) + " $" + str(greatestincrease[1]) + " ")
     print("Greatest Decrease: " + str(greatestdescrease))
     # print("Greatest Decrease: " + str(greatestdescrease))  + " $" + str(greatestdescrease[1] + " ")
@@ -70,7 +70,7 @@ with open(csvpath) as bankcsv:
     write_file.write("---------------------------------------------\n")
     write_file.write("Total Months: " + str(months) + "\n")
     write_file.write("Total Revenue: $" + str(total_revenue) + "\n")
-    write_file.write("Total Average: $" + str(round(totalchange/totalrowsforaverage)) + "\n")
+    write_file.write("Total Average: $" + str(round(totalchange/totalrowsforaverage, 2)) + "\n")
     write_file.write("Greatest Increase: " + str(greatestincrease[0]) + " $" + str(greatestincrease[1]) + "\n")
     # write_file.write("Greatest Decrease: " + str(decrease_date) + " $" + str(greatestdescrease) + "\n")
-    # write_file.close()
+    write_file.write("----------------END OF REPORT---------------") 

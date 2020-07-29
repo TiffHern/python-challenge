@@ -2,5 +2,6 @@ Financial Bank Analysis
 ---------------------------------------------
 Total Months: 86
 Total Revenue: $38382578
-Total Average: $-2315
+Total Average: $-2315.12
 Greatest Increase: Feb-2012 $1926159
+----------------END OF REPORT---------------
