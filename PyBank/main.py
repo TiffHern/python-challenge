@@ -32,7 +32,7 @@ with open(csvpath) as bankcsv:
     firstrow = next(csvreader)
     previousvalue = int(firstrow[1])
     greatestincrease = ["",0]
-    greatestdescrease = ["",0]
+    greatestdescrease = ["",99999999]
     fluctuation = 0
     
     #The total average of change between months
@@ -48,12 +48,9 @@ with open(csvpath) as bankcsv:
         if fluctuation > greatestincrease[1]:
             greatestincrease[1] = fluctuation
             greatestincrease[0] = nextrow[0]
-        # else:
-        #     fluctuation < greatestincrease[1]:
-        #     greatestincrease[1] = greatestdescrease 
+      
         if fluctuation < greatestdescrease[1]:
-            # fluctuation = greatestdescrease[1]
-            fluctuation = greatestdescrease[1]
+            greatestdescrease[1] = fluctuation 
             greatestdescrease[0] = nextrow[0]
             
 
@@ -63,10 +60,9 @@ with open(csvpath) as bankcsv:
    
     #Subtraction/ total of rows will provide the average and round it so there is not too many decimals
     print("Total Average: $" + str(round(totalchange/totalrowsforaverage, 2)))
-    print("Greatest Increase: " + str(greatestincrease[0]) + " $" + str(greatestincrease[1]) + " ")
-    print("Greatest Decrease: " + str(greatestdescrease[0]) + " $" + str(greatestdescrease[1]) + " ")
-    # print("Greatest Decrease: " + str(greatestdescrease))  + " $" + str(greatestdescrease[1]) + " ")
- 
+    print("Greatest Increase: " + str(greatestincrease[0]) + " ($" + str(greatestincrease[1]) + ")")
+    print("Greatest Decrease: " + str(greatestdescrease[0]) + " ($" + str(greatestdescrease[1]) + ")")
+     
     #Writing output to text file in folder called Analysis
     writefilepath = os.path.join("Analysis", "BankAnalysis.txt")
     write_file = open(writefilepath, 'w')
@@ -75,6 +71,6 @@ with open(csvpath) as bankcsv:
     write_file.write("Total Months: " + str(months) + "\n")
     write_file.write("Total Revenue: $" + str(total_revenue) + "\n")
     write_file.write("Total Average: $" + str(round(totalchange/totalrowsforaverage, 2)) + "\n")
-    write_file.write("Greatest Increase: " + str(greatestincrease[0]) + " $" + str(greatestincrease[1]) + "\n")
-    # write_file.write("Greatest Decrease: " + str(decrease_date) + " $" + str(greatestdescrease) + "\n")
+    write_file.write("Greatest Increase: " + str(greatestincrease[0]) + " ($" + str(greatestincrease[1]) + ")" + "\n")
+    write_file.write("Greatest Decrease: " + str(greatestdescrease[0]) + " ($" + str(greatestdescrease[1]) + ")" + "\n")
     write_file.write("----------------END OF REPORT---------------") 
